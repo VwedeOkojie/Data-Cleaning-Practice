@@ -1,1 +1,57 @@
+CREATE TABLE clean_data 
+(OrderID VARCHAR (50),
+Segment VARCHAR (50),
+ShipMode VARCHAR (100),
+Sales Float);
+
+
+INSERT INTO clean_data
+(OrderID, Segment, ShipMode, Sales)
+SELECT 
+[Order ID] AS OrderID,
+CASE	
+	WHEN consumer_first_class IS NOT NULL THEN 'consumer'
+    WHEN consumer_first_class IS NOT NULL THEN 'Consumer'
+    WHEN consumer_same_day  IS NOT NULL THEN 'Consumer'
+    WHEN consumer_second_class IS NOT NULL THEN 'Consumer'
+    WHEN consumer_standard_class IS NOT NULL THEN 'Consumer'
+    WHEN corporate_first_class IS NOT NULL THEN 'Corporate'
+    WHEN corporate_same_day IS NOT NULL THEN 'Corporate'
+    WHEN corporate_second_class IS NOT NULL THEN 'Corporate'
+    WHEN corporate_standard_class IS NOT NULL THEN 'Corporate'
+    WHEN home_office_first_class IS NOT NULL THEN 'Home Office'
+    WHEN home_office_same_day IS NOT NULL THEN 'Home Office'
+    WHEN home_office_second_class IS NOT NULL THEN 'Home Office'
+    WHEN home_office_standard_class IS NOT NULL THEN 'Home Office'
+END AS Segment,
+    CASE
+     WHEN consumer_first_class IS NOT NULL THEN 'First Class'
+     WHEN consumer_same_day IS NOT NULL THEN 'Same Day'
+     WHEN consumer_second_class IS NOT NULL THEN 'Second Class'
+     WHEN consumer_standard_class IS NOT NULL THEN 'Standard Class'
+     WHEN corporate_first_class IS NOT NULL THEN 'First Class'
+     WHEN corporate_same_day IS NOT NULL THEN 'Same Day'
+     WHEN corporate_second_class IS NOT NULL THEN 'Second Class'
+     WHEN corporate_standard_class IS NOT NULL THEN 'Standard Class'
+     WHEN home_office_first_class IS NOT NULL THEN 'First Class'
+     WHEN home_office_same_day IS NOT NULL THEN 'Same Day'
+     WHEN home_office_second_class IS NOT NULL THEN 'Second Class'
+     WHEN home_office_standard_class IS NOT NULL THEN 'Standard Class'
+END AS Ship_Mode,
+COALESCE(consumer_first_class, consumer_same_day, consumer_second_class, consumer_standard_class,
+             corporate_first_class, corporate_same_day, corporate_second_class, corporate_standard_class,
+             home_office_first_class, home_office_same_day, home_office_second_class, home_office_standard_class) AS Sales
+FROM dirty_data
+WHERE consumer_first_class IS NOT NULL
+   OR consumer_same_day IS NOT NULL
+   OR consumer_second_class IS NOT NULL
+   OR consumer_standard_class IS NOT NULL
+   OR corporate_first_class IS NOT NULL
+   OR corporate_same_day IS NOT NULL
+   OR corporate_second_class IS NOT NULL
+   OR corporate_standard_class IS NOT NULL
+   OR home_office_first_class IS NOT NULL
+   OR home_office_same_day IS NOT NULL
+   OR home_office_second_class IS NOT NULL
+   OR home_office_standard_class IS NOT NULL;
 
