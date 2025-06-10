@@ -31,7 +31,7 @@ This project demonstrates a real-world data cleaning exercise. It showcases the 
 ## 📥 How to Use the Project
 
 1. **Download the dataset**  
-   Get the raw dataset `dirtydata.csv` from the repository or the provided source.
+   Get the raw dataset `dirty_data.csv` from the repository or the provided source.
 
 2. **Inspect the dataset**  
    Open the file and review the first few rows.
@@ -62,6 +62,16 @@ Preparing datasets for BI tools (e.g., Power BI, Tableau)
 
 Building a solid portfolio project for aspiring data analysts
 
+## Project Structure
+
+- [LICENCE](https://github.com/VwedeOkojie/Data-Cleaning-Practice/blob/main/LICENSE) - Permission
+- [README.md](https://github.com/VwedeOkojie/Data-Cleaning-Practice/blob/main/README.md) - Project overview and instructions `You are here`
+- [SQL Script](https://github.com/VwedeOkojie/Data-Cleaning-Practice/blob/main/SQL%20Script) - SSMS
+- [clean_data.csv](https://github.com/VwedeOkojie/Data-Cleaning-Practice/blob/main/clean_data.csv) - Folder containing clean dataset
+- [dirty_data.csv](https://github.com/VwedeOkojie/Data-Cleaning-Practice/blob/main/dirty_data.csv) - Folder containing dirty dataset
+
+
+- [SQL Scripts](https://github.com/VwedeOkojie/COVID-19-Project/blob/05866d68124f1d1f6466477e305c2e222941891b/SQL%20Scripts) - Folder containing SQL scripts for data loading and analysis
 ## 📬 Feedback & Contribution
 Feel free to fork this repository, raise issues, or suggest improvements. Contributions are welcome!
 
